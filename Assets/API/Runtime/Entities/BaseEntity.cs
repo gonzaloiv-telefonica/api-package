@@ -6,7 +6,7 @@ namespace Meta.Api
 {
 
     [System.Serializable]
-    public class BaseEntry
+    public class BaseEntity
     {
         public int id;
     }

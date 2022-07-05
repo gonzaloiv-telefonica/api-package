@@ -6,7 +6,7 @@ namespace Meta.Api
 {
 
     [System.Serializable]
-    public class Customer : BaseEntry
+    public class Customer : BaseEntity
     {
         public string name;
     }

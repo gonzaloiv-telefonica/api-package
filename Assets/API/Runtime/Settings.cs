@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Meta.Api
 {
 
-    [CreateAssetMenu(fileName = "ApiSettings", menuName = "Xoia/ApiClient/ApiSettings")]
+    [CreateAssetMenu(fileName = "Meta.Api.Settings", menuName = "Meta/api-client/Settings")]
     public class Settings : ScriptableObject
     {
         public string baseUrl;
