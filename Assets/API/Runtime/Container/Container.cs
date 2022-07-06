@@ -14,14 +14,14 @@ namespace Meta.Api
             base.Register<T>(dao);
         }
 
-        public virtual Promise<T> Get<T>(int id)
+        public virtual Promise<List<T>> Get<T>()
         {
-            return For<T>().Get(id);
+            return For<T>().Get();
         }
 
         protected virtual IDao<T> For<T>()
         {
-            return Get<T>() as IDao<T>;
+            return GetElement<T>() as IDao<T>;
         }
 
     }

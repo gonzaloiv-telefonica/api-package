@@ -8,7 +8,7 @@ namespace Meta.Api
     [System.Serializable]
     public class Customer : BaseEntity
     {
-        public string name;
+        public string fullName;
     }
 
 }

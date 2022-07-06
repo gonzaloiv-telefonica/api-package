@@ -10,7 +10,6 @@ namespace Meta.Api
     {
         string Uri { get; }
         Promise<List<T>> Get();
-        Promise<T> Get(int id);
     }
 
 }

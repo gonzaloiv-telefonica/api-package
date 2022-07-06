@@ -21,18 +21,22 @@ namespace Meta.Api
             this.settings = settings;
         }
 
-        public virtual Promise<List<T>> Get<T>(string uri)
+        public virtual Promise<List<T>> Get<T, A>(string uri) where T : BaseEntity where A : IApiEntity<T>
         {
             Promise<List<T>> promise = new Promise<List<T>>();
             RequestHelper requestHelper = new RequestHelper();
             requestHelper.Uri = settings.baseUrl + "/" + uri;
             RestClient.Get(requestHelper)
-                .Then(response => promise.Resolve(PostmanParser.ParseAsList<T>(response.Text, uri)))
+                .Then(response =>
+                {
+                    List<T> result = PostmanParser.ParseAsList<T, A>(response.Text, uri);
+                    promise.Resolve(result);
+                })
                 .Catch(promise.Reject);
             return promise;
         }
 
-        public Promise<T> Get<T>(string uri, int id)
+        public Promise<T> Get<T>(string uri, int id) where T : BaseEntity
         {
             throw new System.NotImplementedException();
         }

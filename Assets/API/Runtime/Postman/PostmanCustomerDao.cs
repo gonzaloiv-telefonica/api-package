@@ -20,12 +20,7 @@ namespace Meta.Api
 
         public Promise<List<Customer>> Get()
         {
-            return client.Get<Customer>(Uri);
-        }
-
-        public Promise<Customer> Get(int id)
-        {
-            return client.Get<Customer>(Uri, id);
+            return client.Get<Customer, PostmanCustomer>(Uri);
         }
 
     }

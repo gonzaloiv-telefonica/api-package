@@ -10,8 +10,7 @@ namespace Meta.Api
 
     public interface IRestClient
     {
-        Promise<List<T>> Get<T>(string uri);
-        Promise<T> Get<T>(string uri, int id);
+        Promise<List<T>> Get<T, A>(string uri) where T : BaseEntity where A : IApiEntity<T>;
     }
 
 }

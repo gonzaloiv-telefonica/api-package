@@ -9,18 +9,18 @@ namespace Meta.Api
     public abstract class Locator
     {
 
-        protected Dictionary<Type, object> daos = new Dictionary<Type, object>();
+        protected Dictionary<Type, object> elements = new Dictionary<Type, object>();
 
         public void Register<T>(object instance)
         {
-            daos[typeof(T)] = instance;
+            elements[typeof(T)] = instance;
         }
 
         public void Unregister<T>(object instance)
         {
-            if (HasDao<T>())
+            if (Contains<T>())
             {
-                daos.Remove(typeof(T));
+                elements.Remove(typeof(T));
             }
             else
             {
@@ -28,16 +28,16 @@ namespace Meta.Api
             }
         }
 
-        public bool HasDao<T>()
+        public bool Contains<T>()
         {
-            return daos.ContainsKey(typeof(T));
+            return elements.ContainsKey(typeof(T));
         }
 
-        public object Get<T>()
+        public object GetElement<T>()
         {
-            if (HasDao<T>())
+            if (Contains<T>())
             {
-                return daos[typeof(T)];
+                return elements[typeof(T)];
             }
             else
             {
