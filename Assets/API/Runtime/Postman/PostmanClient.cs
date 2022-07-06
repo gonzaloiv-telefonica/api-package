@@ -8,7 +8,10 @@ using UnityEngine;
 namespace Meta.Api
 {
 
-    public class PostmanClient : IClient
+    /// <summary>
+    /// Works as an adapter for RestClient adding the conversion to business logic entities
+    /// </summary>
+    public class PostmanClient : IRestClient
     {
 
         private Settings settings;
@@ -24,14 +27,7 @@ namespace Meta.Api
             RequestHelper requestHelper = new RequestHelper();
             requestHelper.Uri = settings.baseUrl + "/" + uri;
             RestClient.Get(requestHelper)
-                .Then(result =>
-                {
-                    JObject joResponse = JObject.Parse(result.Text);
-                    JArray ojObject = (JArray)joResponse["data"][uri.ToString()];
-                    List<T> entities = ojObject.ToObject<List<T>>();
-                    promise.Resolve(entities);
-
-                })
+                .Then(response => PostmanParser.ParseAsList<T>(response.Text, uri))
                 .Catch(promise.Reject);
             return promise;
         }

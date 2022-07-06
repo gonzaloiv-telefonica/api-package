@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Meta.Api
 {
 
-    public interface IClient
+    public interface IRestClient
     {
         Promise<List<T>> Get<T>(string uri);
         Promise<T> Get<T>(string uri, int id);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleGraphQL;
 
 namespace Meta.Api
 {
@@ -8,24 +9,22 @@ namespace Meta.Api
     public class ShopifySample : MonoBehaviour
     {
 
-        public Settings settings;
-        public List<Customer> customers;
+        [SerializeField] private GraphQLConfig config;
+        private GraphQLClient client;
+        [SerializeField] private List<Product> products;
 
         private void Start()
         {
+            this.client = new GraphQLClient(config);
             GetProducts();
         }
 
         private void GetProducts()
         {
-            IClient client = new ShopifyClient(settings); // One client for all the needed DAOs 
-            // IDao<Customer> dao = new PostmanCustomerDao(client);
-            // dao.Get()
-            //     .Then(customers =>
-            //     {
-            //         this.customers = customers;
-            //     })
-            //     .Catch(Debug.LogException);
+            IDao<Product> dao = new ShopifyProductDao(client, config);
+            dao.Get()
+                .Then(products => this.products = products)
+                .Catch(Debug.LogException);
         }
 
     }

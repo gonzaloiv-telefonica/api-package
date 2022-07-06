@@ -9,8 +9,8 @@ namespace Meta.Api
     public interface IDao<T>
     {
         string Uri { get; }
-        Promise<T> Get(int id);
         Promise<List<T>> Get();
+        Promise<T> Get(int id);
     }
 
 }

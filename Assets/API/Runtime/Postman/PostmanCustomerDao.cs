@@ -10,10 +10,10 @@ namespace Meta.Api
     public class PostmanCustomerDao : IDao<Customer>
     {
 
-        protected IClient client;
+        protected IRestClient client;
         public string Uri => "customers";
 
-        public PostmanCustomerDao(IClient client)
+        public PostmanCustomerDao(IRestClient client)
         {
             this.client = client;
         }
