@@ -6,4 +6,4 @@ It depends on the following packages:
 1. C-Sharp-Promise: https://github.com/Real-Serious-Games/C-Sharp-Promise
 2. RestClient for Unity: https://github.com/proyecto26/RestClient
 3. SimpleGraphQL: https://openupm.com/packages/com.lastabyss.simplegraphql/#close
-4. Newtonsoft Json Unity Package (integrated via SimpleGraphQL): https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@2.0/manual/index.html
+4. Newtonsoft Json Unity Package: https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@2.0/manual/index.html

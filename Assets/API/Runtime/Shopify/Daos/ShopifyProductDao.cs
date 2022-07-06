@@ -31,7 +31,7 @@ namespace Meta.Api
         public async void GetProducts(Promise<List<Product>> promise)
         {
             Query query = client.FindQuery("Product", "GetProducts", OperationType.Query);
-            string results = await client.Send(query);
+            string results = await client.Send(query.ToRequest());
             if (string.IsNullOrEmpty(results))
             {
                 promise.Reject(new System.Exception("This request had null result!"));
