@@ -11,19 +11,18 @@ namespace Meta.Api
     public class PostmanClient : IClient
     {
 
-        public Settings Settings { get; private set; }
+        private Settings settings;
 
         public PostmanClient(Settings settings)
         {
-            Settings = settings;
+            this.settings = settings;
         }
 
         public virtual Promise<List<T>> Get<T>(string uri)
         {
-
             Promise<List<T>> promise = new Promise<List<T>>();
             RequestHelper requestHelper = new RequestHelper();
-            requestHelper.Uri = Settings.baseUrl + "/" + uri;
+            requestHelper.Uri = settings.baseUrl + "/" + uri;
             RestClient.Get(requestHelper)
                 .Then(result =>
                 {

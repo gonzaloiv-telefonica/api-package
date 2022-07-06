@@ -8,7 +8,9 @@ namespace Meta.Api
     [System.Serializable]
     public class BaseEntity
     {
-        public int id;
+        public string id;
+        public string createdAt;
+        public string updatedAt;
     }
 
 }

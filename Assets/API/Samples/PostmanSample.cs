@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Meta.Api
 {
 
-    public class Test : MonoBehaviour
+    public class PostmanSample : MonoBehaviour
     {
 
         public Settings settings;
