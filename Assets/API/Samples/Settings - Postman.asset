@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6810e262ab1a0034ba1cdf0dc537e149, type: 3}
   m_Name: Settings - Postman
   m_EditorClassIdentifier: 
-  baseUrl: https://01c19f0d-b0f5-46cd-9acf-c0af4d8ce1ae.mock.pstmn.io
+  baseUrl: https://752bd198-86e0-48b4-a9d8-ce2505e38d1c.mock.pstmn.io
   token: 

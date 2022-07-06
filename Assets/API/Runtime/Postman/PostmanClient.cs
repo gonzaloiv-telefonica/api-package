@@ -27,7 +27,7 @@ namespace Meta.Api
             RequestHelper requestHelper = new RequestHelper();
             requestHelper.Uri = settings.baseUrl + "/" + uri;
             RestClient.Get(requestHelper)
-                .Then(response => PostmanParser.ParseAsList<T>(response.Text, uri))
+                .Then(response => promise.Resolve(PostmanParser.ParseAsList<T>(response.Text, uri)))
                 .Catch(promise.Reject);
             return promise;
         }
