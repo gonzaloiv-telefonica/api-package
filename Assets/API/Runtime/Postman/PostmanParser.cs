@@ -9,7 +9,7 @@ namespace Meta.Api
     public static class PostmanParser
     {
 
-        public static List<T> ParseAsList<T, A>(string response, string uri) where T : BaseEntity where A : IApiEntity<T>
+        public static List<T> ParseAsList<T, A>(string response, string uri) where T : BaseEntity, new() where A : IApiEntity<T>, new()
         {
             JObject jObject = JObject.Parse(response);
             JArray objs = (JArray)jObject["data"][uri.ToString()];

@@ -21,7 +21,7 @@ namespace Meta.Api
             this.settings = settings;
         }
 
-        public virtual Promise<List<T>> Get<T, A>(string uri) where T : BaseEntity where A : IApiEntity<T>
+        public virtual Promise<List<T>> Get<T, A>(string uri) where T : BaseEntity, new() where A : IApiEntity<T>, new()
         {
             Promise<List<T>> promise = new Promise<List<T>>();
             RequestHelper requestHelper = new RequestHelper();

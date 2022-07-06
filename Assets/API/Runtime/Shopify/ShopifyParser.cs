@@ -9,14 +9,15 @@ namespace Meta.Api
     public static class ShopifyParser
     {
 
-        public static List<T> ParseAsList<T>(string results)
+        public static List<T> ParseAsList<T, A>(string results) where T : BaseEntity, new() where A : IApiEntity<T>, new()
         {
             JObject response = JObject.Parse(results);
             JArray objs = (JArray)response["data"]["products"]["edges"];
             List<T> entities = new List<T>();
             foreach (JObject obj in objs)
             {
-                entities.Add(obj["node"].ToObject<T>());
+                A apiEntity = obj["node"].ToObject<A>();
+                entities.Add(apiEntity.ToEntity());
             }
             return entities;
         }

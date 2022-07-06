@@ -38,7 +38,7 @@ namespace Meta.Api
             }
             else
             {
-                promise.Resolve(ShopifyParser.ParseAsList<Product>(results));
+                promise.Resolve(ShopifyParser.ParseAsList<Product, ShopifyProduct>(results));
             }
         }
 
