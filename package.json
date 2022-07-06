@@ -21,7 +21,7 @@
         {
             "displayName": "Common",
             "description": "Shows the general functionality of the module",
-            "path": "Samples"
+            "path": "Samples~/"
         }
     ]
 }
