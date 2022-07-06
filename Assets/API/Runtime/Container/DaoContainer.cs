@@ -6,7 +6,7 @@ using RSG;
 namespace Meta.Api
 {
 
-    public class Container : Locator
+    public class DaoContainer : Locator
     {
 
         public virtual void Register<T>(IDao<T> dao)
